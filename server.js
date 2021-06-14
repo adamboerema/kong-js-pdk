@@ -10,7 +10,7 @@ const {
 const PipePair = require(path.join(__dirname, 'lib', 'pipe'))
 const PDK = require(path.join(__dirname, 'pdk'))
 
-const entities = ('Service', 'Consumer', 'Route', 'Plugin', 'Credential', 'MemoryStats')
+const entities = ['Service', 'Consumer', 'Route', 'Plugin', 'Credential', 'MemoryStats']
 const MSG_RET = 'ret'
 
 class PluginServerError extends Error {
@@ -292,8 +292,7 @@ class Server {
 }
 
 // Generate other RPC methods
-for (let i in entities) {
-  let entity = entities[i]
+for (const entity of entities) {
   Server.prototype["Step" + entity] = Server.prototype.Step
 }
 
