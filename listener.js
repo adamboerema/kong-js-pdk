@@ -54,7 +54,6 @@ class Listener {
         }
 
         this.logger.debug("rpc: #" + msgid + " method: " + method + " args: " + JSON.stringify(args))
-        write_response("Plugin server" + JSON.stringify(ps));
         if (this.ps[cmd] === undefined) {
           let err = "method \"" + cmd + "\" not implemented"
           this.logger.error("rpc: #" + msgid + " " + err)
